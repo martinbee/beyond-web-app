@@ -24,7 +24,14 @@
 
 
 ## Tools
-
 - React
+- React Router
 - Redux
 - Local Storage
+
+## Plan
+- Main menu where you can add new workouts
+  - Upon clicking add new, should ask for:
+    - TM or to verify old TM
+    - Type of workout, should assume based on array but can be editable
+    - Week #

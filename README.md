@@ -3,6 +3,7 @@
 ### Built for personal use
 
 ## [Development Plan](./docs/plan.md)
+## [Structure](./docs/structure.md)
 ## [Rules](./docs/rules.md)
 ## [Assistance Work](./docs/assistance.md)
 
