@@ -35,3 +35,13 @@
     - TM or to verify old TM
     - Type of workout, should assume based on array but can be editable
     - Week #
+- Individual workout page
+  - Should have tm and week type at top, editable again
+  - All lifts listed below:
+    - Three optional warmups
+    - The main lifts
+    - FUTURE: Ability to add joker sets
+    - First set last sets
+    - Some input to allow user to say they've done that many sets
+      - checkboxes?
+      - An input?
