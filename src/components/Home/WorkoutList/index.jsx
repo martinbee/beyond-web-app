@@ -5,3 +5,10 @@ const WorkoutList = () => {
 };
 
 export default WorkoutList;
+
+// workouts = [workout]
+// workout = {
+//   tm
+//   workout type
+//   main exercise
+// }
