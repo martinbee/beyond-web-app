@@ -1,0 +1,23 @@
+.workout-container {
+  margin: 20px;
+}
+
+.week-lift-dropdown {
+  width: 200px;
+  margin: auto;
+}
+
+.training-max-input {
+  width: 200px;
+  background-color: #fff;
+  border-color: #d9d9d9 #ccc #b3b3b3;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  color: #333;
+  cursor: default;
+  height: 36px;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  line-height: 36px;
+}
