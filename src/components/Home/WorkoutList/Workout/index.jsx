@@ -1,7 +1,24 @@
-import React from 'react';
-import { number } from 'prop-types';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { addWorkout } from '../../../../actions/workouts';
+import { number, func } from 'prop-types';
 
 import Display from './Display';
+
+const stubWorkouts = [
+  {
+    weekNumber: '1',
+    coreLift: 'press',
+  },
+  {
+    weekNumber: '1',
+    coreLift: 'deadLift',
+  },
+  {
+    weekNumber: '1',
+    coreLift: 'bench',
+  },
+];
 
 const weekAndLiftDropdown = [
   {
@@ -28,29 +45,49 @@ const trainingMaxInput = {
   type: 'text',
 };
 
-const Workout = (props) => {
-  const weekAndLiftDropdownConfig = weekAndLiftDropdown.map(config => ({
-    ...config,
-    onChange: selection => console.log(selection),
-    value: props[config.id],
-  }));
+const getActions = dispatch => ({
+  setIntitialWorkouts: workouts => dispatch(addWorkout(workouts)),
+});
 
-  const trainingMaxInputConfig = {
-    ...trainingMaxInput,
-    onChange: evt => console.log(evt.target.value),
-    value: props.trainingMax,
-  };
+class Workout extends Component {
+  componentDidMount() {
+    this.props.setIntitialWorkouts(stubWorkouts);
+  }
 
-  return (
-    <Display
-      weekAndLiftDropdownConfig={weekAndLiftDropdownConfig}
-      trainingMaxInputConfig={trainingMaxInputConfig}
-    />
-  );
-};
+  getWeekAndLiftDropdownConfig() {
+    return weekAndLiftDropdown.map(config => ({
+      ...config,
+      onChange: selection => console.log(selection),
+      value: this.props[config.id],
+    }));
+  }
+
+  getTrainingMaxInputConfig() {
+    return ({
+      ...trainingMaxInput,
+      onChange: evt => console.log(evt.target.value),
+      value: this.props.trainingMax,
+    });
+  }
+
+  render() {
+    // check for local storage data, if none, modal or prompt for info, else
+    // workouts. Spinner while waiting
+    const weekAndLiftDropdownConfig = this.getWeekAndLiftDropdownConfig();
+    const trainingMaxInputConfig = this.getTrainingMaxInputConfig();
+
+    return (
+      <Display
+        weekAndLiftDropdownConfig={weekAndLiftDropdownConfig}
+        trainingMaxInputConfig={trainingMaxInputConfig}
+      />
+    );
+  }
+}
 
 Workout.propTypes = {
-  trainingMax: number.isRequired,
+  setIntitialWorkouts: func.isRequired,
 };
 
-export default Workout;
+
+export default connect(null, getActions)(Workout);
