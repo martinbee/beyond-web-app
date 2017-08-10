@@ -2,6 +2,7 @@
   "name": "beyond-web-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://martinbee.github.io/beyond-web-app",
   "devDependencies": {
     "eslint": "^4.4.0",
     "eslint-config-airbnb": "^15.1.0",
@@ -11,6 +12,7 @@
     "react-scripts": "1.0.10"
   },
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -22,6 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "npm run build && gh-pages -d build",
     "lint": "eslint ./src/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
