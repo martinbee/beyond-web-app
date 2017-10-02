@@ -42,7 +42,9 @@ const TempCalculatorDisplay = ({
   return (
     <div style={{ marginTop: '20px' }}>
       {renderInputs()}
-      { results.length > 0 && renderResults() }
+      <div style={{ textAlign: 'left' }}>
+        { results.length > 0 && renderResults() }
+      </div>
     </div>
   );
 };
